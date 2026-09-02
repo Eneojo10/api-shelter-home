@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Dev Hub Portal
+
+Using react (tsx) i want to build a Developer portal and these are the features i want Dashboard, My Applications, Credentials (client ID, client server, API key, webhook, secret and auth token), Api keys, permissions, webhooks, rotation/revocation, API documentation, sandbox, logs, usage and support
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://api-shelter-home.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/131fcc8b-aa72-49a1-9a98-216d23ac59ff).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
