@@ -14,8 +14,11 @@ import { Route as ApiKeysRouteImport } from './routes/api-keys'
 import { Route as ApplicationsRouteImport } from './routes/applications'
 import { Route as CredentialsRouteImport } from './routes/credentials'
 import { Route as DocsRouteImport } from './routes/docs'
+import { Route as LogsRouteImport } from './routes/logs'
 import { Route as PermissionsRouteImport } from './routes/permissions'
 import { Route as SandboxRouteImport } from './routes/sandbox'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as UsageRouteImport } from './routes/usage'
 import { Route as WebhooksRouteImport } from './routes/webhooks'
 
 const IndexRoute = IndexRouteImport.update({
@@ -43,6 +46,11 @@ const DocsRoute = DocsRouteImport.update({
   path: '/docs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LogsRoute = LogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PermissionsRoute = PermissionsRouteImport.update({
   id: '/permissions',
   path: '/permissions',
@@ -51,6 +59,16 @@ const PermissionsRoute = PermissionsRouteImport.update({
 const SandboxRoute = SandboxRouteImport.update({
   id: '/sandbox',
   path: '/sandbox',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsageRoute = UsageRouteImport.update({
+  id: '/usage',
+  path: '/usage',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WebhooksRoute = WebhooksRouteImport.update({
@@ -65,8 +83,11 @@ export interface FileRoutesByFullPath {
   '/applications': typeof ApplicationsRoute
   '/credentials': typeof CredentialsRoute
   '/docs': typeof DocsRoute
+  '/logs': typeof LogsRoute
   '/permissions': typeof PermissionsRoute
   '/sandbox': typeof SandboxRoute
+  '/support': typeof SupportRoute
+  '/usage': typeof UsageRoute
   '/webhooks': typeof WebhooksRoute
 }
 export interface FileRoutesByTo {
@@ -75,8 +96,11 @@ export interface FileRoutesByTo {
   '/applications': typeof ApplicationsRoute
   '/credentials': typeof CredentialsRoute
   '/docs': typeof DocsRoute
+  '/logs': typeof LogsRoute
   '/permissions': typeof PermissionsRoute
   '/sandbox': typeof SandboxRoute
+  '/support': typeof SupportRoute
+  '/usage': typeof UsageRoute
   '/webhooks': typeof WebhooksRoute
 }
 export interface FileRoutesById {
@@ -86,8 +110,11 @@ export interface FileRoutesById {
   '/applications': typeof ApplicationsRoute
   '/credentials': typeof CredentialsRoute
   '/docs': typeof DocsRoute
+  '/logs': typeof LogsRoute
   '/permissions': typeof PermissionsRoute
   '/sandbox': typeof SandboxRoute
+  '/support': typeof SupportRoute
+  '/usage': typeof UsageRoute
   '/webhooks': typeof WebhooksRoute
 }
 export interface FileRouteTypes {
@@ -98,8 +125,11 @@ export interface FileRouteTypes {
     | '/applications'
     | '/credentials'
     | '/docs'
+    | '/logs'
     | '/permissions'
     | '/sandbox'
+    | '/support'
+    | '/usage'
     | '/webhooks'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -108,8 +138,11 @@ export interface FileRouteTypes {
     | '/applications'
     | '/credentials'
     | '/docs'
+    | '/logs'
     | '/permissions'
     | '/sandbox'
+    | '/support'
+    | '/usage'
     | '/webhooks'
   id:
     | '__root__'
@@ -118,8 +151,11 @@ export interface FileRouteTypes {
     | '/applications'
     | '/credentials'
     | '/docs'
+    | '/logs'
     | '/permissions'
     | '/sandbox'
+    | '/support'
+    | '/usage'
     | '/webhooks'
   fileRoutesById: FileRoutesById
 }
@@ -129,8 +165,11 @@ export interface RootRouteChildren {
   ApplicationsRoute: typeof ApplicationsRoute
   CredentialsRoute: typeof CredentialsRoute
   DocsRoute: typeof DocsRoute
+  LogsRoute: typeof LogsRoute
   PermissionsRoute: typeof PermissionsRoute
   SandboxRoute: typeof SandboxRoute
+  SupportRoute: typeof SupportRoute
+  UsageRoute: typeof UsageRoute
   WebhooksRoute: typeof WebhooksRoute
 }
 
@@ -171,6 +210,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DocsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/logs': {
+      id: '/logs'
+      path: '/logs'
+      fullPath: '/logs'
+      preLoaderRoute: typeof LogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/permissions': {
       id: '/permissions'
       path: '/permissions'
@@ -183,6 +229,20 @@ declare module '@tanstack/react-router' {
       path: '/sandbox'
       fullPath: '/sandbox'
       preLoaderRoute: typeof SandboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/usage': {
+      id: '/usage'
+      path: '/usage'
+      fullPath: '/usage'
+      preLoaderRoute: typeof UsageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/webhooks': {
@@ -201,8 +261,11 @@ const rootRouteChildren: RootRouteChildren = {
   ApplicationsRoute: ApplicationsRoute,
   CredentialsRoute: CredentialsRoute,
   DocsRoute: DocsRoute,
+  LogsRoute: LogsRoute,
   PermissionsRoute: PermissionsRoute,
   SandboxRoute: SandboxRoute,
+  SupportRoute: SupportRoute,
+  UsageRoute: UsageRoute,
   WebhooksRoute: WebhooksRoute,
 }
 export const routeTree = rootRouteImport
