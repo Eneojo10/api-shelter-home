@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiKeysRouteImport } from './routes/api-keys'
+import { Route as ApplicationsRouteImport } from './routes/applications'
+import { Route as CredentialsRouteImport } from './routes/credentials'
+import { Route as DocsRouteImport } from './routes/docs'
+import { Route as LogsRouteImport } from './routes/logs'
+import { Route as PermissionsRouteImport } from './routes/permissions'
+import { Route as SandboxRouteImport } from './routes/sandbox'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as UsageRouteImport } from './routes/usage'
+import { Route as WebhooksRouteImport } from './routes/webhooks'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiKeysRoute = ApiKeysRouteImport.update({
+  id: '/api-keys',
+  path: '/api-keys',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplicationsRoute = ApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CredentialsRoute = CredentialsRouteImport.update({
+  id: '/credentials',
+  path: '/credentials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogsRoute = LogsRouteImport.update({
+  id: '/logs',
+  path: '/logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PermissionsRoute = PermissionsRouteImport.update({
+  id: '/permissions',
+  path: '/permissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SandboxRoute = SandboxRouteImport.update({
+  id: '/sandbox',
+  path: '/sandbox',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsageRoute = UsageRouteImport.update({
+  id: '/usage',
+  path: '/usage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebhooksRoute = WebhooksRouteImport.update({
+  id: '/webhooks',
+  path: '/webhooks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api-keys': typeof ApiKeysRoute
+  '/applications': typeof ApplicationsRoute
+  '/credentials': typeof CredentialsRoute
+  '/docs': typeof DocsRoute
+  '/logs': typeof LogsRoute
+  '/permissions': typeof PermissionsRoute
+  '/sandbox': typeof SandboxRoute
+  '/support': typeof SupportRoute
+  '/usage': typeof UsageRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api-keys': typeof ApiKeysRoute
+  '/applications': typeof ApplicationsRoute
+  '/credentials': typeof CredentialsRoute
+  '/docs': typeof DocsRoute
+  '/logs': typeof LogsRoute
+  '/permissions': typeof PermissionsRoute
+  '/sandbox': typeof SandboxRoute
+  '/support': typeof SupportRoute
+  '/usage': typeof UsageRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api-keys': typeof ApiKeysRoute
+  '/applications': typeof ApplicationsRoute
+  '/credentials': typeof CredentialsRoute
+  '/docs': typeof DocsRoute
+  '/logs': typeof LogsRoute
+  '/permissions': typeof PermissionsRoute
+  '/sandbox': typeof SandboxRoute
+  '/support': typeof SupportRoute
+  '/usage': typeof UsageRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/api-keys'
+    | '/applications'
+    | '/credentials'
+    | '/docs'
+    | '/logs'
+    | '/permissions'
+    | '/sandbox'
+    | '/support'
+    | '/usage'
+    | '/webhooks'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/api-keys'
+    | '/applications'
+    | '/credentials'
+    | '/docs'
+    | '/logs'
+    | '/permissions'
+    | '/sandbox'
+    | '/support'
+    | '/usage'
+    | '/webhooks'
+  id:
+    | '__root__'
+    | '/'
+    | '/api-keys'
+    | '/applications'
+    | '/credentials'
+    | '/docs'
+    | '/logs'
+    | '/permissions'
+    | '/sandbox'
+    | '/support'
+    | '/usage'
+    | '/webhooks'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiKeysRoute: typeof ApiKeysRoute
+  ApplicationsRoute: typeof ApplicationsRoute
+  CredentialsRoute: typeof CredentialsRoute
+  DocsRoute: typeof DocsRoute
+  LogsRoute: typeof LogsRoute
+  PermissionsRoute: typeof PermissionsRoute
+  SandboxRoute: typeof SandboxRoute
+  SupportRoute: typeof SupportRoute
+  UsageRoute: typeof UsageRoute
+  WebhooksRoute: typeof WebhooksRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api-keys': {
+      id: '/api-keys'
+      path: '/api-keys'
+      fullPath: '/api-keys'
+      preLoaderRoute: typeof ApiKeysRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/applications': {
+      id: '/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof ApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/credentials': {
+      id: '/credentials'
+      path: '/credentials'
+      fullPath: '/credentials'
+      preLoaderRoute: typeof CredentialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/logs': {
+      id: '/logs'
+      path: '/logs'
+      fullPath: '/logs'
+      preLoaderRoute: typeof LogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/permissions': {
+      id: '/permissions'
+      path: '/permissions'
+      fullPath: '/permissions'
+      preLoaderRoute: typeof PermissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sandbox': {
+      id: '/sandbox'
+      path: '/sandbox'
+      fullPath: '/sandbox'
+      preLoaderRoute: typeof SandboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/usage': {
+      id: '/usage'
+      path: '/usage'
+      fullPath: '/usage'
+      preLoaderRoute: typeof UsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/webhooks': {
+      id: '/webhooks'
+      path: '/webhooks'
+      fullPath: '/webhooks'
+      preLoaderRoute: typeof WebhooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiKeysRoute: ApiKeysRoute,
+  ApplicationsRoute: ApplicationsRoute,
+  CredentialsRoute: CredentialsRoute,
+  DocsRoute: DocsRoute,
+  LogsRoute: LogsRoute,
+  PermissionsRoute: PermissionsRoute,
+  SandboxRoute: SandboxRoute,
+  SupportRoute: SupportRoute,
+  UsageRoute: UsageRoute,
+  WebhooksRoute: WebhooksRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
