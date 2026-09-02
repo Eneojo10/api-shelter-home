@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiKeysRouteImport } from './routes/api-keys'
 import { Route as ApplicationsRouteImport } from './routes/applications'
 import { Route as CredentialsRouteImport } from './routes/credentials'
+import { Route as PermissionsRouteImport } from './routes/permissions'
+import { Route as WebhooksRouteImport } from './routes/webhooks'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +36,32 @@ const CredentialsRoute = CredentialsRouteImport.update({
   path: '/credentials',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PermissionsRoute = PermissionsRouteImport.update({
+  id: '/permissions',
+  path: '/permissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebhooksRoute = WebhooksRouteImport.update({
+  id: '/webhooks',
+  path: '/webhooks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api-keys': typeof ApiKeysRoute
   '/applications': typeof ApplicationsRoute
   '/credentials': typeof CredentialsRoute
+  '/permissions': typeof PermissionsRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api-keys': typeof ApiKeysRoute
   '/applications': typeof ApplicationsRoute
   '/credentials': typeof CredentialsRoute
+  '/permissions': typeof PermissionsRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +69,34 @@ export interface FileRoutesById {
   '/api-keys': typeof ApiKeysRoute
   '/applications': typeof ApplicationsRoute
   '/credentials': typeof CredentialsRoute
+  '/permissions': typeof PermissionsRoute
+  '/webhooks': typeof WebhooksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api-keys' | '/applications' | '/credentials'
+  fullPaths:
+    | '/'
+    | '/api-keys'
+    | '/applications'
+    | '/credentials'
+    | '/permissions'
+    | '/webhooks'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api-keys' | '/applications' | '/credentials'
-  id: '__root__' | '/' | '/api-keys' | '/applications' | '/credentials'
+  to:
+    | '/'
+    | '/api-keys'
+    | '/applications'
+    | '/credentials'
+    | '/permissions'
+    | '/webhooks'
+  id:
+    | '__root__'
+    | '/'
+    | '/api-keys'
+    | '/applications'
+    | '/credentials'
+    | '/permissions'
+    | '/webhooks'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +104,8 @@ export interface RootRouteChildren {
   ApiKeysRoute: typeof ApiKeysRoute
   ApplicationsRoute: typeof ApplicationsRoute
   CredentialsRoute: typeof CredentialsRoute
+  PermissionsRoute: typeof PermissionsRoute
+  WebhooksRoute: typeof WebhooksRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +138,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CredentialsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/permissions': {
+      id: '/permissions'
+      path: '/permissions'
+      fullPath: '/permissions'
+      preLoaderRoute: typeof PermissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/webhooks': {
+      id: '/webhooks'
+      path: '/webhooks'
+      fullPath: '/webhooks'
+      preLoaderRoute: typeof WebhooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +160,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiKeysRoute: ApiKeysRoute,
   ApplicationsRoute: ApplicationsRoute,
   CredentialsRoute: CredentialsRoute,
+  PermissionsRoute: PermissionsRoute,
+  WebhooksRoute: WebhooksRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
