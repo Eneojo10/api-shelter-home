@@ -27,7 +27,7 @@ export const Route = createFileRoute("/sandbox")({
       { property: "og:description", content: "Test the API safely with mock data and test cards." },
     ],
   }),
-  component: Sandbox;
+  component: Sandbox,
 });
 
 const endpoints = [
